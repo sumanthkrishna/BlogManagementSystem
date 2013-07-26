@@ -8,4 +8,17 @@
   <%= @post.body %>
 </p>
 
+<% @post.comments.each do |comment|%>
+  <b>User</b><%= comment.user%><br />
+  <b>Comment</b><%= comment.body%>
+<% end %>
+
+<%= form_for([@post, @post.comments.build]) do |com| %>
+  <%= com.label :user %>
+  <%= com.text_field :user %>
+  <%= com.label :body %>
+  <%= com.text_field :body %>
+  <%= com.submit %>
+<% end %>
+
 <%= link_to "Back", posts_path %>
