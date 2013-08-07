@@ -8,9 +8,19 @@
   <%= @post.body %>
 </p>
 
+<p>
+  <b>Reference Link:</b>
+  <a href='<%= @post.reference_link %>' target="_blank"><%= @post.reference_link %></a>
+</p>
+
+<%= "You will be notified when you receive comments" if @post.notify_me == "1" %>
+
+   
+
+
 <% @post.comments.each do |comment|%>
-  <b>User</b><%= comment.user%><br />
-  <b>Comment</b><%= comment.body%>
+  <b>User:</b><%= comment.user%><br />
+  <b>Comment:</b><%= comment.body%>
 <% end %>
 
 <%= form_for([@post, @post.comments.build]) do |com| %>

@@ -1,20 +1,22 @@
 <h1>Listing Posts</h1>
 
-<table>
+<table class="table-condensed">
   <tr>
     <th>Title</th>
     <th>Body</th>
+    <th>Actions</th>
     <th></th>
   </tr>
 <% @posts.each do |post| %>
   <tr>
     <td><%= post.title %></td>
     <td><%= post.body %></td>
-    <td><%= link_to "show", post %></td>
-    <td><%= link_to "edit", edit_post_path(post) %></td>
+    <td><%= link_to "show", post, :class =>"btn btn-success btn-mini" %></td>
+    <td><%= link_to "edit", edit_post_path(post), :class =>"btn btn-warning btn-mini" %></td>
+    <td><%= link_to "delete", post_path(post), :method => 'delete', :class =>"btn btn-danger btn-mini" %></td>
   </tr>
 <% end %>
 </table>
 
-<%= link_to "New", new_post_path %>
+<%= link_to "New", new_post_path,:class => "btn btn-info "  %>
 

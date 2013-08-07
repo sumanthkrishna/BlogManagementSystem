@@ -1,14 +1,30 @@
 <%= form_for(@post) do |f| %>
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_area :title %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :body %><br />
+    <%= f.label :body %>
     <%= f.text_area :body %>
-  </div>
+    <%= f.label :reference_link %>
+    <%= f.text_field :reference_link %><br />
+    <%= f.check_box :notify_me %><span style="color:blue";> Notify me </span><br /><br />
+
+  
+
+    <%= f.label :safe_for_work %>
+   <input type="radio" id="safe_for_work" name="post[safe_for_work]" value="safe_for_work" checked="checked" />
+   <input type="radio" id="not_safe_for_work" name="post[safe_for_work]" value="not_safe_for_work" />
+
+
+  </div>  
+  
+  
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", :class => "btn btn-primary " %>
     <%= link_to "Cancel", posts_path %>
   </div>
 <% end %>
+
+
+
